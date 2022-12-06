@@ -3,57 +3,50 @@
         <ul class="mainmenu">
             <li class="menu-item-has-children"><a href="#">Ara</a>
                 <ul class="axil-submenu">
-                    @if(!empty($query))
+                    @if (!empty($query))
 
-                    @if(!empty($posts))
+                        @if (!empty($posts))
 
-                    @foreach ($posts as $p)
-
-
-
-                    <li>
-                        <a class="hover-flip-item-wrapper" href="{{ route('detail', $p['slug'] )}}">
-                            <span>
-                                <span data-text="{{ $p['title'] }}">{{ $p['title'] }}
+                            @foreach ($posts as $p)
+                                <li>
+                                    <a class="hover-flip-item-wrapper" href="{{ route('detail', $p['slug']) }}">
+                                        <span>
+                                            <span data-text="{{ $p['title'] }}">{{ $p['title'] }}
 
 
+                                            </span>
+
+                                            <img src="{{ asset('storage/' . $p['image']) }}  " with="30" height="30">
+
+                                        </span>
+
+
+
+
+                                    </a>
+                                </li>
+                            @endforeach
+                        @else
+                            <li>
+
+                                <span class="hover-flip-item">
+                                    <span data-text="Oyun Bulunamadı">Oyun Bulunamadı
+                                    </span>
                                 </span>
-                             
-                                <img src="{{asset('storage/' .  $p['image'] )}}  " with="30" height="30">
 
-                            </span>
-                     
-
-        
-
-                        </a>
-                    </li>
-
-
-                    @endforeach
-                  
-                    @else
-
-
-    <li>
-        
-            <span class="hover-flip-item">
-                <span data-text="Oyun Bulunamadı">Oyun Bulunamadı
-                </span>
-            </span>
-     
-    </li>
+                            </li>
 
 
 
-@endif
-@endif
+                        @endif
+                    @endif
                     <li>
                         <div class="header-search text-right d-flex align-items-center">
                             <form class="header-search-form">
                                 <div class="axil-search form-group">
                                     <button class="search-button"><i class="fal fa-search"></i></button>
-                                    <input type="text" wire:model="query" class="form-control" placeholder="Arama Yapın">
+                                    <input type="text" wire:model="query" class="form-control"
+                                        placeholder="Arama Yapın">
                                 </div>
                             </form>
 

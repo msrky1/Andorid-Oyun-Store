@@ -52,5 +52,7 @@ $app->register(Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class);
 | from the actual running of the application and sending responses.
 |
 */
+$app->register(\Barryvdh\DomPDF\ServiceProvider::class);
+$app->configure('dompdf');
 
 return $app;
